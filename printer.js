@@ -8,17 +8,18 @@ const printer = new escpos.Printer(device);
 let mod = module.exports = {}
 
 mod.init = () => {
-  let p = new Promise((resolve, reject) => {
+  let p = new Promise((resolve) => {
     device.open(() => {
-      printer.font('a');
-      printer.align('lt');
-      resolve();
+      resolve(printer.font('a').align('lt'));
     });
   });
   return p;
 }
 
-mod.print = (text, size = 1) => {
-  printer.size(size, size);
-  printer.text(text);
+mod.print = (paper, text, size = 1) => {
+  paper = paper.size(size, size).text(text);
 };
+
+mod.cut = (paper) => {
+  paper = paper.cut();
+}
