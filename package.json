@@ -1,0 +1,23 @@
+{
+  "name": "order-ai-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shunr/order-ai-client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shunr/order-ai-client/issues"
+  },
+  "homepage": "https://github.com/shunr/order-ai-client#readme",
+  "dependencies": {
+    "escpos": "^2.4.5",
+    "ws": "^4.0.0"
+  }
+}
