@@ -40,9 +40,9 @@ app.run = async () => {
 app.get('/', (req, res) => {
   let r = '';
   for (let i = 0; i < orders.length; i++) {
-    r += '<strong>' + orders[i].contact + '</strong><br>';
-    for (let j = 0; j < orders[i].length; j++) {
-      let item = orders[i][j];
+    r += '<strong>' + orders[i].contact.substring(13, 25) + '</strong><br>';
+    for (let j = 0; j < orders[i].items.length; j++) {
+      let item = orders[i].items[j];
       r += item.amount + ' ' + item.name + ' ' + '$0.00<br>';
     }
     r += 'Total: $' + orders[i].total + '<br><br>';
