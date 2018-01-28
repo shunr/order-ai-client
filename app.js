@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
   let r = '';
   for (let i = 0; i < orders.length; i++) {
     r += '<strong>' + orders[i].contact + '</strong><br>';
-    for (let j = 0; j < orders[i].length; i++) {
+    for (let j = 0; j < orders[i].length; j++) {
       let item = orders[i][j];
       r += item.amount + ' ' + item.name + ' ' + '$0.00<br>';
     }
