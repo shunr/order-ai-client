@@ -27,7 +27,7 @@ app.run = async () => {
     printer.cut(paper);
   });
 
-  ws.on('close', () => {
+  server.on('close', () => {
     process.exit();
   });
 };
