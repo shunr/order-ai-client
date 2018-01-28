@@ -1,9 +1,10 @@
 const WebSocket = require('ws');
 const printer = require('./printer');
+const express = require('express')
 
 const server = new WebSocket('ws://162.243.171.232:8080/orders');
+const app = express();
 
-let app = module.exports = {};
 let orders = [];
 
 app.run = async () => {
@@ -36,4 +37,17 @@ app.run = async () => {
 
 };
 
-app.run();
+app.get('/', (req, res) => {
+  let r = '';
+  for (let i = 0; i < orders.length; i++) {
+    r += '<strong>' + orders[i].contact + '</strong><br>';
+    for (let j = 0; j < orders[i].length; i++) {
+      let item = orders[i][j];
+      r += item.amount + ' ' + item.name + ' ' + '$0.00<br>';
+    }
+    r += 'Total: $' + orders[i].total + '<br><br>';
+  }
+  res.send(r);
+});
+
+app.listen(80, () => app.run);
