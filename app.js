@@ -7,12 +7,15 @@ let app = module.exports = {};
 let orders = [];
 
 app.run = async () => {
+
+  let paper;
   try {
-    let paper = await printer.init();
+    paper = await printer.init();
   } catch (err) {
     console.error(err);
     process.exit();
   }
+
   server.on('message', (data) => {
     let order = JSON.parse(data);
     console.log(order);
@@ -30,6 +33,7 @@ app.run = async () => {
   server.on('close', () => {
     process.exit();
   });
+
 };
 
 app.run();
