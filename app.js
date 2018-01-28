@@ -50,4 +50,4 @@ app.get('/', (req, res) => {
   res.send(r);
 });
 
-app.listen(80, () => app.run);
+app.listen(80, app.run);
