@@ -23,6 +23,10 @@ app.run = async () => {
     orders.push(order);
     printer.print(paper, 'Restaurant Name\n', 2);
     printer.print(paper, order.contact);
+    printer.print(paper, order.type);
+    if (order.address) {
+      printer.print(paper, order.address);
+    }
     for (let i = 0; i < order.items.length; i++) {
       let item = order.items[i];
       printer.print(paper, item.amount + ' ' + item.name + ' ' + '$0.00');
@@ -41,6 +45,9 @@ app.get('/', (req, res) => {
   let r = '';
   for (let i = 0; i < orders.length; i++) {
     r += '<strong>' + orders[i].contact.substring(13, 25) + '</strong><br>';
+    r += order.type + '<br>';
+    r += (order.address) ? order.address + '<br>' : '';
+    r += item.amount + ' ' + item.name + ' ' + '$0.00<br>';
     for (let j = 0; j < orders[i].items.length; j++) {
       let item = orders[i].items[j];
       r += item.amount + ' ' + item.name + ' ' + '$0.00<br>';
