@@ -24,10 +24,6 @@ app.run = async () => {
     orders.push(order);
     printer.print(paper, 'Pizza Place\n', 2);
     printer.print(paper, order.contact);
-    printer.print(paper, order.type);
-    if (order.address) {
-      printer.print(paper, order.address);
-    }
     for (let i = 0; i < order.items.length; i++) {
       let item = order.items[i];
       let toppings = '';
